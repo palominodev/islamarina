@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets"
+import CausaImage from "../../assets/images/causa_card.jpg"
+import CevicheImage from "../../assets/images/ceviche_card.jpg"
+import ArrozConPolloImage from "../../assets/images/arrozconpollo_card.png"
+
+const menuItems = [
+  {
+    title: "Entradas",
+    image: CausaImage,
+    items: [
+      { name: "Causa de Pescado", price: "S/ 18.00" },
+      { name: "Ceviche", price: "S/ 25.00" },
+      { name: "Parihuela", price: "S/ 28.00" },
+      { name: "Tiradito", price: "S/ 22.00" },
+    ],
+  },
+  {
+    title: "Segundos",
+    image: CevicheImage,
+    items: [
+      { name: "Arroz con Mariscos", price: "S/ 35.00" },
+      { name: "Jalea Mixta", price: "S/ 40.00" },
+      { name: "Pescado a lo Macho", price: "S/ 38.00" },
+      { name: "Chicharrón de Pescado", price: "S/ 32.00" },
+    ],
+  },
+  {
+    title: "Menú Criollo",
+    image: ArrozConPolloImage,
+    items: [
+      { name: "Lomo Saltado", price: "S/ 30.00" },
+      { name: "Aji de Gallina", price: "S/ 28.00" },
+      { name: "Seco con Frijoles", price: "S/ 26.00" },
+      { name: "Tallarines Verdes", price: "S/ 25.00" },
+    ],
+  },
+];
+---
+
+<section id="menu" class="py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-12">Te ofrecemos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {menuItems.map((section) => (
+        <article class="rounded-lg shadow-lg overflow-hidden">
+          <figure>
+            <Image
+              class="w-full h-48 object-cover"
+              src={section.image}
+              alt={section.title}
+            />
+          </figure>
+          <div class="p-4">
+            <h3 class="text-2xl font-semibold mb-4 text-accent">{section.title}</h3>
+            <ul class="text-center text-[#979797] text-lg">
+              {section.items.map((item) => (
+                <li class="flex justify-between px-4 py-1 border-b border-gray-200 last:border-b-0">
+                  <span>{item.name}</span>
+                  <span class="font-medium text-gray-700">{item.price}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section> 
