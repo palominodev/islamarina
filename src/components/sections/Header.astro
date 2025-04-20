@@ -1,14 +1,87 @@
-<header class="bg-primary text-white font-bold flex justify-center">
-	<div class="container flex px-16 py-4 items-center justify-between">
+---
+// Importamos el módulo para acceder a assets de la aplicación
+import { Image } from "astro:assets";
+// Necesitamos agregar script para controlar el menú móvil
+
+// Definimos los enlaces de navegación en un arreglo
+const navLinks = [
+	{ href: "#menu", text: "Carta" },
+	{ href: "#ubicacion", text: "Ubicacion" },
+	{ href: "#historia", text: "Historia" },
+];
+---
+
+<header class="bg-primary text-white font-bold">
+	<div class="container mx-auto flex px-4 md:px-16 py-4 items-center justify-between">
 		<figure>
-			<img src="./logo.png" alt="logo">
+			<img src="./logo.png" alt="logo" class="h-12">
 		</figure>
-		<nav class="text-xl">
+		
+		<!-- Menú para pantallas medianas y grandes -->
+		<nav class="text-xl hidden md:block">
 			<ul class="flex gap-8">
-				<li><a href="http://carta">Carta</a></li>
-				<li><a href="http://ubicación">Ubicacion</a></li>
-				<li><a href="http://Historia">Historia</a></li>
+				{navLinks.map(link => (
+					<li><a href={link.href}>{link.text}</a></li>
+				))}
+			</ul>
+		</nav>
+		
+		<!-- Botón de menú para móviles -->
+		<button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+		</button>
+	</div>
+	
+	<!-- Menú móvil - se desliza desde la derecha -->
+	<div id="mobile-menu" class="fixed top-0 right-0 h-full w-0 bg-primary z-50 overflow-hidden transition-all duration-300 shadow-lg">
+		<div class="p-4 flex justify-end">
+			<button id="close-menu" class="text-white focus:outline-none">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</button>
+		</div>
+		<nav class="text-xl p-4">
+			<ul class="flex flex-col gap-8">
+				{navLinks.map(link => (
+					<li><a href={link.href} class="block py-2 px-4 hover:bg-primary-dark rounded">{link.text}</a></li>
+				))}
 			</ul>
 		</nav>
 	</div>
 </header>
+
+<script>
+	// Script para controlar el menú móvil
+	document.addEventListener('DOMContentLoaded', () => {
+		const menuToggle = document.getElementById('menu-toggle');
+		const closeMenu = document.getElementById('close-menu');
+		const mobileMenu = document.getElementById('mobile-menu');
+		
+		if (menuToggle && closeMenu && mobileMenu) {
+			// Función para abrir el menú
+			const openMenu = () => {
+				mobileMenu.style.width = '250px';
+				document.body.style.overflow = 'hidden'; // Prevenir scroll
+			};
+			
+			// Función para cerrar el menú
+			const closeMenuFunc = () => {
+				mobileMenu.style.width = '0';
+				document.body.style.overflow = ''; // Permitir scroll nuevamente
+			};
+			
+			// Event listeners
+			menuToggle.addEventListener('click', openMenu);
+			closeMenu.addEventListener('click', closeMenuFunc);
+			
+			// Cerrar menú al hacer clic en un enlace
+			const menuLinks = document.querySelectorAll('#mobile-menu a');
+			menuLinks.forEach(link => {
+				link.addEventListener('click', closeMenuFunc);
+			});
+		}
+	});
+</script>

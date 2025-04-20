@@ -55,9 +55,9 @@ const menuItems = [
             <h3 class="text-2xl font-semibold mb-4 text-accent">{section.title}</h3>
             <ul class="text-center text-[#979797] text-lg">
               {section.items.map((item) => (
-                <li class="flex justify-between px-4 py-1 border-b border-gray-200 last:border-b-0">
+                <li class="flex justify-between items-center px-4 py-1 border-b border-gray-200 last:border-b-0">
                   <span>{item.name}</span>
-                  <span class="font-medium text-gray-700">{item.price}</span>
+                  <span class="font-medium text-gray-700 whitespace-nowrap">{item.price}</span>
                 </li>
               ))}
             </ul>
