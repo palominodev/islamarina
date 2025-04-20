@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import NosotrosImage from "../../assets/images/nosotros.jpg";
+---
+
+<section class="bg-accent py-16 px-4 sm:px-6 lg:px-8">
+	<div class="container mx-auto flex flex-col lg:flex-row items-center gap-12">
+		<div class="flex-1 text-center lg:text-left text-white">
+			<h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">Nuestro equipo</h2>
+			<ul class="text-lg sm:text-xl space-y-3">
+				<li>
+					<strong>Ana Morales:</strong> Chef directora. Especialista en ceviches y mariscos.
+				</li>
+				<li>
+					<strong>Carlos Ramírez:</strong> Se encarga de que todo funcione como debe: atención al cliente, logística y la calidad de la experiencia.
+				</li>
+				<li>
+					<strong>Diego Herrera:</strong> Encargado de cocina. Apoya en la preparación y presentación.
+				</li>
+				<li>
+					<strong>José Luis Gamarra:</strong> Maestro Cevichero. Con más de 10 años de experiencia, es el responsable de preparar los ceviches.
+				</li>
+				<li>
+					<strong>Lucia Vargas:</strong> Se encarga de que todo en el salón funcione a la perfección.
+				</li>
+			</ul>
+		</div>
+		<figure class="flex-1 w-full lg:w-auto mt-8 lg:mt-0">
+			<Image
+				src={NosotrosImage}
+				alt="Nuestro equipo"
+				class="w-full h-auto rounded-lg shadow-lg object-cover"
+				width={657} height={438} 
+			/>
+		</figure>
+	</div>
+</section>
