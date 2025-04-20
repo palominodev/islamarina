@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import PixelCevicheLogo from "../assets/images/logo_pixe-ceviche.png"; // Asegúrate que la ruta sea correcta
+
+const pixelCevicheLink = "https://pixelceviche.vercel.app";
+
+---
+
+<dialog id="pixel-ceviche-dialog" class="fixed inset-0 z-[999] flex items-center justify-center w-full h-full bg-black bg-opacity-50 backdrop-blur-sm">
+  <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 max-w-xs sm:max-w-sm w-full text-center m-4">
+    <figure class="mb-4">
+      <Image 
+        src={PixelCevicheLogo} 
+        alt="Logo Pixel Ceviche" 
+        width={80} 
+        height={80} 
+        class="mx-auto rounded-full border-2 border-primary object-cover" 
+      />
+    </figure>
+    <p class="text-gray-700 mb-6 text-base md:text-lg">
+      Esta página ha sido desarrollada por <a href={pixelCevicheLink} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">
+        PIXEL CEVICHE
+      </a>.
+    </p>
+    <button id="close-dialog-button" class="px-5 py-2 bg-primary text-white rounded hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-dark focus:ring-opacity-50 transition-colors duration-200">
+      Aceptar
+    </button>
+  </div>
+</dialog>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dialog = document.getElementById('pixel-ceviche-dialog') as HTMLDialogElement | null;
+    const closeButton = document.getElementById('close-dialog-button');
+
+    if (dialog && closeButton) {
+      // Function to open the dialog
+      const openDialog = () => {
+        dialog.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Disable body scroll
+      };
+
+      // Function to close the dialog
+      const closeDialog = () => {
+        dialog.classList.add('hidden');
+        document.body.style.overflow = ''; // Enable body scroll
+      };
+
+      // Open the dialog automatically after a short delay (e.g., 500ms)
+      setTimeout(openDialog, 500);
+
+      // Close when clicking the button
+      closeButton.addEventListener('click', closeDialog);
+
+      // Close when clicking outside the dialog content (on the backdrop)
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) {
+          closeDialog();
+        }
+      });
+      
+      // Close with the Escape key
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !dialog.classList.contains('hidden')) {
+           closeDialog();
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+/* Ensure the dialog is above other content */
+#pixel-ceviche-dialog {
+  z-index: 999;
+}
+
+/* Remove default padding/border from dialog element */
+dialog {
+  padding: 0;
+  border: none;
+  max-width: none; 
+  max-height: none; 
+  background: transparent; 
+}
+</style> 
