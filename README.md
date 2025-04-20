@@ -1,48 +1,67 @@
-# Astro Starter Kit: Basics
+# Isla Marina - Sitio Web del Restaurante
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este proyecto es el sitio web para el restaurante de comida peruana "Isla Marina". Ha sido desarrollado utilizando Astro y Tailwind CSS para crear una experiencia web moderna, rápida y responsiva.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+El sitio web ha sido desarrollado por [PIXEL CEVICHE](https://pixelceviche.vercel.app).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ✨ Características Principales
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+*   **Diseño Responsivo:** Adaptado para visualizarse correctamente en dispositivos móviles, tablets y de escritorio.
+*   **Componentes Reutilizables:** Construido con componentes de Astro para una mejor organización y mantenimiento (`Header`, `Dialog`).
+*   **Navegación Intuitiva:** Encabezado fijo con enlaces a las secciones principales (Carta, Ubicación, Historia) y menú desplegable para móviles.
+*   **Modal de Créditos:** Un diálogo modal que aparece al cargar la página, indicando el desarrollador del sitio (PIXEL CEVICHE).
+*   **Estilizado con Tailwind CSS:** Utilización del framework de CSS Tailwind para un diseño rápido y consistente.
+*   **Optimización de Imágenes:** Uso de `astro:assets` para optimizar las imágenes del sitio.
 
-## 🚀 Project Structure
+## 🚀 Estructura del Proyecto
 
-Inside of your Astro project, you'll see the following folders and files:
+El proyecto sigue la estructura estándar de Astro:
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/             # Archivos estáticos (favicon, etc.)
+│   └── ...
 ├── src/
-│   ├── layouts/
+│   ├── assets/         # Imágenes y otros recursos
+│   │   └── images/
+│   ├── components/     # Componentes reutilizables de Astro (.astro)
+│   │   ├── sections/   # Componentes de secciones (Header, etc.)
+│   │   └── Dialog.astro
+│   ├── layouts/        # Layouts base de las páginas (.astro)
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── pages/          # Páginas del sitio (.astro)
+│   │   └── index.astro
+│   └── styles/         # Archivos de estilos globales (.css)
+│       └── global.css
+└── package.json        # Dependencias y scripts del proyecto
+└── tailwind.config.mjs # Configuración de Tailwind CSS
+└── tsconfig.json       # Configuración de TypeScript
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Para más detalles sobre la estructura, consulta la [guía de estructura de proyectos de Astro](https://docs.astro.build/es/basics/project-structure/).
 
-## 🧞 Commands
+## 🧞 Comandos Disponibles
 
-All commands are run from the root of the project, from a terminal:
+Todos los comandos se ejecutan desde la raíz del proyecto en una terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Comando             | Acción                                                     |
+| :------------------ | :--------------------------------------------------------- |
+| `npm install`       | Instala las dependencias del proyecto.                     |
+| `npm run dev`       | Inicia el servidor de desarrollo local en `localhost:4321`. |
+| `npm run build`     | Compila el sitio para producción en la carpeta `./dist/`.   |
+| `npm run preview`   | Previsualiza la compilación de producción localmente.      |
+| `npm run astro ...` | Ejecuta comandos CLI de Astro (`astro add`, `astro check`). |
 
-## 👀 Want to learn more?
+## 💻 Tecnologías Utilizadas
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+*   **Framework:** [Astro](https://astro.build/)
+*   **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Despliegue:** (Especificar plataforma si se conoce, ej. Vercel, Netlify)
+
+## 📄 Licencia
+
+(Especificar tipo de licencia si aplica, ej. MIT, reservado, etc.)
+
+## 👨‍💻 Créditos
+
+Desarrollado con ❤️ por [PIXEL CEVICHE](https://pixelceviche.vercel.app).
