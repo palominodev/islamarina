@@ -1,0 +1,65 @@
+---
+const currentYear = new Date().getFullYear();
+
+// Reutilizamos o definimos los enlaces para el footer
+const footerLinks = [
+  { href: "#historia", text: "Historia" },
+  { href: "#menu", text: "Carta" },
+  { href: "#ubicacion", text: "Ubicación" },
+  // Podrías añadir más enlaces aquí, como Política de Privacidad, etc.
+];
+---
+
+<footer class="bg-gray-900 text-gray-400 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      
+      <!-- Columna 1: Nombre y Descripción Breve -->
+      <div class="text-center md:text-left">
+        <h3 class="text-xl font-semibold text-white mb-4">Isla Marina</h3>
+        <p class="text-sm">
+          Disfruta de los sabores frescos del mar en un ambiente acogedor. 
+          ¡Te esperamos!
+        </p>
+      </div>
+
+      <!-- Columna 2: Enlaces Rápidos -->
+      <div class="text-center md:text-left">
+        <h4 class="text-lg font-medium text-white mb-4">Enlaces Rápidos</h4>
+        <ul class="space-y-2">
+          {footerLinks.map(link => (
+            <li>
+              <a href={link.href} class="hover:text-white transition-colors duration-200">{link.text}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Columna 3: Contacto y Redes -->
+      <div class="text-center md:text-left">
+        <h4 class="text-lg font-medium text-white mb-4">Contacto</h4>
+        <address class="not-italic space-y-2 mb-4">
+          <p>Av. Lurigancho 1161, SJL</p>
+          <p><a href="tel:+51912455272" class="hover:text-white">+51 912 455 272</a></p>
+          <p><a href="mailto:GilderZam@hotmail.com" class="hover:text-white">GilderZam@hotmail.com</a></p>
+        </address>
+        <div class="flex justify-center md:justify-start space-x-4">
+          <a href="#" aria-label="Facebook" class="hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><!-- Icono FB --><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.69 21.21 10.44 21.99V14.9H7.9V12.06H10.44V9.81C10.44 7.31 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.9H13.56V21.99C18.31 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><!-- Icono IG --><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"/></svg></a>
+          {/* Añadir más iconos/enlaces si es necesario */}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Línea divisoria y Copyright -->
+    <div class="border-t border-gray-700 pt-8 text-center">
+      <p class="text-sm">
+        &copy; {currentYear} Isla Marina Cevicheria. Todos los derechos reservados.
+      </p>
+       <p class="text-xs mt-2">
+         Diseñado con ❤️ por <a href="#" class="hover:text-white">TuNombre/TuAgencia</a>
+      </p>
+    </div>
+  </div>
+</footer> 

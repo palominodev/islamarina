@@ -1,6 +1,7 @@
 ---
 // Importamos el módulo para acceder a assets de la aplicación
 import { Image } from "astro:assets";
+import LogoIslaMarina from "../../assets/images/logo_isla_marina.png";
 // Necesitamos agregar script para controlar el menú móvil
 
 // Definimos los enlaces de navegación en un arreglo
@@ -13,8 +14,9 @@ const navLinks = [
 
 <header class="bg-primary text-white font-bold">
 	<div class="container mx-auto flex px-4 md:px-16 py-4 items-center justify-between">
-		<figure>
-			<img src="./logo.png" alt="logo" class="h-12">
+		<figure class="flex items-center gap-4">
+			<Image src={LogoIslaMarina} width={100} height={100} alt="logo" class="rounded-full p-3" />
+			<figcaption class="text-center text-white text-2xl font-bold">Isla Marina</figcaption>
 		</figure>
 		
 		<!-- Menú para pantallas medianas y grandes -->

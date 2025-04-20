@@ -4,6 +4,9 @@ import CausaImage from "../../assets/images/causa_card.jpg";
 import CevicheImage from "../../assets/images/ceviche_card.jpg";
 import ArrozConPolloImage from "../../assets/images/arrozconpollo_card.png";
 
+// Define la URL del archivo PDF de la carta aquí
+const CARTA_PDF_URL = "/carta-isla-marina.pdf"; // ¡Asegúrate de que esta ruta sea correcta!
+
 const menuItems = [
 	{
 		title: "Entradas",
@@ -40,7 +43,7 @@ const menuItems = [
 
 <section id="menu" class="py-16">
 	<div class="container mx-auto text-center">
-		<h2 class="text-4xl font-bold mb-12">Te ofrecemos</h2>
+		<h2 class="text-accent text-5xl font-bold mb-12">Te ofrecemos</h2>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
 			{
 				menuItems.map((section) => (
@@ -71,11 +74,16 @@ const menuItems = [
 				))
 			}
 		</div>
-		<span
-			class="text-center text-accent font-bold text-2xl mt-8 inline-block"
-			>Te ofrecemos lo mejor de lo mejor que no encontrar en otros
-			restaurantes Frescura , Textura y Sabor, todo en un solo plato
-			deleitable.</span
-		>
+		
+		<!-- Botón de descarga de PDF -->
+		<div class="mt-12">
+			<a 
+				href={CARTA_PDF_URL} 
+				class="inline-block bg-primary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-primary-dark transition-colors duration-300 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+				download
+			>
+				Descargar Carta Completa (PDF)
+			</a>
+		</div>
 	</div>
 </section>
