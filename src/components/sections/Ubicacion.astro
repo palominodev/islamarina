@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+// Asegúrate de que la ruta a la imagen sea correcta
+import UbicacionImage from "../../assets/images/paisaje.jpg"; 
+// Puedes añadir lógica o importar datos aquí si es necesario
+---
+
+<section id="ubicacion" class="py-16 px-4 sm:px-6 lg:px-8">
+  <div class="container mx-auto">
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-12 text-primary">Ubicación</h2>
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <!-- Columna de la Imagen -->
+      <figure class="flex-1 w-full lg:w-1/2">
+        <Image
+          src={UbicacionImage} 
+          alt="Vista de Miraflores"
+          class="w-full h-auto rounded-lg shadow-lg object-cover"
+          width={657} 
+          height={438} 
+        />
+      </figure>
+
+      <!-- Columna de Texto -->
+      <div class="flex-1 w-full lg:w-1/2 text-center lg:text-left">
+        <h3 class="text-3xl font-semibold mb-6 text-accent">¿Dónde nos encuentras?</h3>
+        <div class="space-y-4 text-lg text-gray-700">
+          <div>
+            <h4 class="font-medium text-primary">Puerto Marino I</h4>
+            <p>Av. Lurigancho 1161 - San Juan de Lurigancho</p>
+          </div>
+          <div>
+            {/* Asumo que esta es otra dirección o referencia */}
+            <p>Av. Lurigancho 1025</p> 
+          </div>
+          <div>
+            <h4 class="font-medium text-primary">Correo:</h4>
+            <p><a href="mailto:GilderZam@hotmail.com" class="hover:underline">GilderZam@hotmail.com</a></p>
+          </div>
+          <div>
+            <h4 class="font-medium text-primary">Contactos:</h4>
+            <p><a href="tel:+51912455272" class="hover:underline">+51 912 455 272</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
